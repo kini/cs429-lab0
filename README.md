@@ -112,7 +112,7 @@ line that starts with a `$`, it just means to type that line on the
 command line, because most people's systems are set up so that the
 command line prompt has a `$` when it's waiting for input from you.
 Sometimes you may also see `>` instead of `$` at the beginning of a
-line -- same idea, don't type the `<`.
+line -- same idea, don't type the `>`.
 
 ## Download the lab assignment
 
