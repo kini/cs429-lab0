@@ -1,6 +1,6 @@
 OBJ = factorial.o
 
-factorial : $(OBJ)
+factorial.out : $(OBJ)
 	cc -o $@ $(OBJ)
 
 clean :
