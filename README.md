@@ -48,24 +48,25 @@ VirtualBox can be obtained from http://www.virtualbox.org/ .
 
 People get very passionate about their Linux distributions.  If you
 have an opinion here, go ahead and use the distribution of your choice
-(Debian, Ubuntu, ArchLinux, Fedora, Slackware, etc), making sure to
+(Ubuntu, Debian, ArchLinux, Fedora, Slackware, etc), making sure to
 choose the 64-bit version.
 
-If you are unsure, we recommend Debian Stable, which can be downloaded
-[here](https://www.debian.org/releases/stable/).
+If you are unsure, we recommend Ubuntu Desktop 64-bit, which can be
+downloaded from
+[the Ubuntu website](http://www.ubuntu.com/download/desktop).
 
 ### Create a new virtual machine
 
 Create a new virtual machine in the VirtualBox program, with the
-following settings (tweak appropriately if you didn't choose Debian
-Stable):
+following settings (tweak appropriately if you didn't choose Ubuntu):
 
-- Name: Debian
+- Name: Ubuntu
 - Type: Linux
-- Version: Debian (64-bit)
+- Version: Ubuntu (64-bit)
 - Memory Size: 2048 MB (or whatever you can afford out of the total
   memory capacity of your computer -- I have 16GB of RAM so I can
-  afford to give my virtual machine half of that, or 8GB)
+  afford to give my virtual machine half of that, or 8GB, but even 1GB
+  should be enough for this class.)
 
 Create a virtual hard drive, of type *dynamic*, preferably at least
 20GB large.  This is a file on your hard drive which will contain the
@@ -78,13 +79,29 @@ grow as necessary.
 
 ### Install Linux on the virtual machine
 
-In the settings page for your new VM, find the virtual CD drive and
-"insert" the installation ISO you downloaded earlier.  Start up the
-VM, booting from the virtual CD drive, and you should see the
-installer come up on the virtual screen.  Follow the instructions to
-install your Linux distribution.
+Start up the VM.  VirtualBox will throw up a dialog box asking whether
+you want to insert a virtual CD into the virtual CD drive, which you
+do.  Select the CD image you downloaded earlier.  You should soon see
+the installer come up on the virtual screen.  Follow the instructions
+to install your Linux distribution.
+
+### Install a web browser
+
+You should install a web browser in your VM, so that you can refer to
+Canvas, Piazza, GitHub (including this page), etc. from inside your VM
+while working on your labs.  Type the following to install Mozilla
+Firefox:
+
+    $ sudo apt-get install firefox
+
+Or install any other browser of your choice.  After you're done, open
+this page (http://github.com/kini/cs429-lab0) in the browser inside
+your VM and proceed from there.
 
 ### Install the guest additions
+
+This step is optional -- if it doesn't work, you can come back and try
+to fix it later if you want.
 
 Mount the Guest Additions CD (there is a special menu item in the
 VirtualBox application for this), and follow the instructions to
@@ -92,12 +109,13 @@ install the VirtualBox Guest Additions into your Linux distribution.
 This will likely improve the performance of your VM dramatically since
 it can use GPU acceleration and CPU optimizations.
 
+
 ### Install important development packages
 
 For this course, you will need several packages, such as GCC (a C
 compiler), gdb (a C debugger), various libraries, and other tools.
-Here is a command you can use on various versions of Debian, and will
-probably also work on Ubuntu:
+Here is a command you can use on various Debian-like Linux
+distributions (including Ubuntu):
 
     $ sudo apt-get install build-essential gcc-multilib gdb gcc valgrind tcl8.5-dev tk8.5-dev flex git
 
@@ -122,13 +140,15 @@ required to do this lab assignment.)  To do this you will use `git`, a
 distributed version control system.
 
 Create an empty folder somewhere in your Linux system, go to it (with
-`cd`), and run the following command:
+`cd`) and clone this git repository:
 
+    $ cd /path/to/some/directory/you/have/made
     $ git clone https://github.com/kini/cs429-lab0 ./
 
 Then all the files you need for this lab will be downloaded into the
 directory.  If I make further changes to this lab in the future and
-you wish to update your local copy, you can use the following command:
+you wish to update your local copy, you can use the following command
+from inside the directory:
 
     $ git pull
 
